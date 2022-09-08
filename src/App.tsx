@@ -1,21 +1,20 @@
 import "./App.css";
+import Habits from "./components/habits";
 
 function App() {
   return (
-    <div className="flex p-8 gap-8">
+    <div className="flex flex-col items-center p-8 gap-8">
       <h1 className="text-3xl font-bold underline">Habit Tracker</h1>
       <div className="block">
-        <form>New habit form</form>
-        <button>Add new habit</button>
+        <form>
+          New habit form
+          <input className="border-gray-500" type="text"></input>
+          <button>Add new habit</button>
+        </form>
       </div>
-      <div>
+      <div className="w-3/4">
         List of habits
-        <div>
-          Habit Object
-          <div>Habit title</div>
-          <div> Habit id</div>
-          <div> Habit checkbox</div>
-        </div>
+        <Habits />
       </div>
     </div>
   );
