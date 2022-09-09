@@ -3,6 +3,7 @@ import { Habit } from "../types/habit";
 
 const NewHabitForm = (props: any) => {
   const [habitName, setHabitName] = useState("");
+  const [isEditing, setisEditing] = useState(false);
 
   //todo: give this the correct type
   const handleHabitNameChange = (event: any) => {
@@ -17,21 +18,37 @@ const NewHabitForm = (props: any) => {
     // localStorage.setItem(habitName, "habits");
     const habitData: Habit = { name: habitName };
     props.onAddHabit(habitData);
+    setisEditing(false);
+    setHabitName("");
   };
 
-  // newhabitsavehandler that takes newhabitdata and feeds it to app tsx
+  const startEditingHandler = () => {
+    setisEditing(true);
+  };
 
+  const stopEditingHandler = () => {
+    setisEditing(false);
+  };
+  // newhabitsavehandler that takes newhabitdata and feeds it to app tsx
   return (
-    <form>
-      New habit form
-      <input
-        className="border-gray-500"
-        type="text"
-        value={habitName}
-        onChange={handleHabitNameChange}
-      ></input>
-      <button onClick={handleSubmit}>Add new habit</button>
-    </form>
+    <div>
+      {!isEditing && (
+        <button onClick={startEditingHandler}>Add New Habit</button>
+      )}
+      {isEditing && (
+        <form>
+          New habit form
+          <input
+            className="border-gray-500"
+            type="text"
+            value={habitName}
+            onChange={handleHabitNameChange}
+          ></input>
+          <button onClick={handleSubmit}>Add new habit</button>
+          <button onClick={stopEditingHandler}>Cancel</button>
+        </form>
+      )}
+    </div>
   );
 };
 export default NewHabitForm;
