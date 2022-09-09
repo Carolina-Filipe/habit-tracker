@@ -7,6 +7,7 @@ import { Habit } from "./types/habit";
 function App() {
   const [habits, setHabits] = useState<Habit[]>([]);
   const addHabitsHandler = (habit: Habit) => {
+    console.log(habit);
     setHabits((prevHabits) => {
       return [habit, ...prevHabits];
     });
@@ -16,11 +17,11 @@ function App() {
     <div className="flex flex-col items-center p-8 gap-8">
       <h1 className="text-3xl font-bold underline">Habit Tracker</h1>
       <div className="block">
-        <NewHabitForm />
+        <NewHabitForm onAddHabit={addHabitsHandler} />
       </div>
       <div className="w-3/4">
         List of habits
-        <Habits habits={habits} onAddNewHabit={addHabitsHandler} />
+        <Habits habits={habits} />
       </div>
     </div>
   );

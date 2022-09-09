@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { Habit } from "../types/habit";
 
 const NewHabitForm = (props: any) => {
   const [habitName, setHabitName] = useState("");
@@ -13,7 +14,9 @@ const NewHabitForm = (props: any) => {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     console.log("submit", habitName);
-    localStorage.setItem(habitName, "habits");
+    // localStorage.setItem(habitName, "habits");
+    const habitData: Habit = { name: habitName };
+    props.onAddHabit(habitData);
   };
 
   // newhabitsavehandler that takes newhabitdata and feeds it to app tsx
