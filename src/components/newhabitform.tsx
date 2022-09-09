@@ -16,6 +16,8 @@ const NewHabitForm = (props: any) => {
     localStorage.setItem(habitName, "habits");
   };
 
+  // newhabitsavehandler that takes newhabitdata and feeds it to app tsx
+
   return (
     <form>
       New habit form
