@@ -31,25 +31,23 @@ const NewHabitForm = (props: any) => {
   };
   // newhabitsavehandler that takes newhabitdata and feeds it to app tsx
   return (
-    <div>
+    <div className="w-full flex  justify-center">
       {!isEditing && (
-        <div>
-          <button
-            className="inline-block px-6 pt-2.5 pb-2 bg-orange-600 text-white font-medium text-xs leading-normal uppercase rounded shadow-md hover:bg-orange-700 hover:shadow-lg focus:bg-orange-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out flex align-center"
-            onClick={startEditingHandler}
-          >
-            <div> icon</div>
-            Add New Habit
-          </button>
-        </div>
+        <button
+          className="inline-block px-6 pt-2.5 pb-2 bg-orange-600 text-white font-medium text-xs leading-normal uppercase rounded shadow-md hover:bg-orange-700 hover:shadow-lg focus:bg-orange-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out flex align-center"
+          onClick={startEditingHandler}
+        >
+          <div> icon</div>
+          Add New Habit
+        </button>
       )}
       {isEditing && (
-        <form className="">
-          <label className="form-label inline-block mb-2 text-gray-700">
+        <form className=" w-1/2">
+          <label className="flex justify-center form-label inline-block mb-2 text-gray-700">
             Create a new habit
           </label>
           <input
-            className="form-control
+            className="flex justify-center form-control
             block
             w-full
             px-3
@@ -70,15 +68,15 @@ const NewHabitForm = (props: any) => {
             value={habitName}
             onChange={handleHabitNameChange}
           ></input>
-          <div className="">
+          <div className="flex justify-center g-8">
             <button
-              className="inline-block px-6 py-2 border-2 border-yellow-500 text-yellow-500 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+              className="m-2 px-6 py-2 border-2 border-yellow-500 text-yellow-500 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
               onClick={handleSubmit}
             >
               Add
             </button>
             <button
-              className="inline-block px-6 py-2 border-2 border-yellow-500 text-yellow-500 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+              className="m-2 px-6 py-2 border-2 border-yellow-500 text-yellow-500 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
               onClick={stopEditingHandler}
             >
               Cancel
