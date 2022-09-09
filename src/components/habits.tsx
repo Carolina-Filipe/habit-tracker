@@ -1,6 +1,7 @@
 import Card from "../UI/card";
 
-const Habits = () => {
+const Habits = (props: any) => {
+  //to-do: figure out props type
   return (
     <div className="flex flex-col gap-8">
       <Card>
