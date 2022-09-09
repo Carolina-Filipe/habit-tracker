@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Habit } from "../types/habit";
 
 const NewHabitForm = (props: any) => {
@@ -33,19 +33,57 @@ const NewHabitForm = (props: any) => {
   return (
     <div>
       {!isEditing && (
-        <button onClick={startEditingHandler}>Add New Habit</button>
+        <div>
+          <button
+            className="inline-block px-6 pt-2.5 pb-2 bg-orange-600 text-white font-medium text-xs leading-normal uppercase rounded shadow-md hover:bg-orange-700 hover:shadow-lg focus:bg-orange-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out flex align-center"
+            onClick={startEditingHandler}
+          >
+            <div> icon</div>
+            Add New Habit
+          </button>
+        </div>
       )}
       {isEditing && (
-        <form>
-          New habit form
+        <form className="">
+          <label className="form-label inline-block mb-2 text-gray-700">
+            Create a new habit
+          </label>
           <input
-            className="border-gray-500"
+            className="form-control
+            block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-blue-300 focus:outline-none
+          "
+            placeholder="e.g. Daily Strech"
             type="text"
             value={habitName}
             onChange={handleHabitNameChange}
           ></input>
-          <button onClick={handleSubmit}>Add new habit</button>
-          <button onClick={stopEditingHandler}>Cancel</button>
+          <div className="">
+            <button
+              className="inline-block px-6 py-2 border-2 border-yellow-500 text-yellow-500 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+              onClick={handleSubmit}
+            >
+              Add
+            </button>
+            <button
+              className="inline-block px-6 py-2 border-2 border-yellow-500 text-yellow-500 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+              onClick={stopEditingHandler}
+            >
+              Cancel
+            </button>
+          </div>
         </form>
       )}
     </div>
