@@ -5,6 +5,7 @@ const Habits = (props: any) => {
   if (props.habits.length === 0) {
     return <h2>Found no results.</h2>;
   }
+  console.log(props.habits, "habits file");
   return (
     <div className="flex flex-col gap-8">
       {props.habits.map((habit: any) => (
