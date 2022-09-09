@@ -2,16 +2,6 @@ import { useRef, useState } from "react";
 
 const NewHabitForm = (props: any) => {
   const [habitName, setHabitName] = useState("");
-  //   const submitHandler = (event: any) => {
-  //     event.preventDefault();
-  //     const habitInput = event.current.value;
-
-  //     if (habitInput.trim().length > 0) {
-  //       props.onEnterTask(habitInput);
-  //     }
-
-  //     console.log;
-  //   };
 
   //todo: give this the correct type
   const handleHabitNameChange = (event: any) => {
@@ -23,6 +13,7 @@ const NewHabitForm = (props: any) => {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     console.log("submit", habitName);
+    localStorage.setItem(habitName, "habits");
   };
 
   return (
