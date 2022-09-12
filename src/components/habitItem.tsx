@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { count } from "console";
+import { useEffect, useState } from "react";
 import { Progress } from "../types/progress";
 import Card from "../UI/card";
+
 const HabitItem = (props: any) => {
   const [progressData, setProgressData] = useState<Progress[]>([]);
 
@@ -9,11 +11,20 @@ const HabitItem = (props: any) => {
       date: new Date(),
       status: "checked",
     };
+    // console.log(newProgressData);
     setProgressData((prevProgressData) => {
       return [newProgressData, ...prevProgressData];
     });
-    console.log(setProgressData);
   };
+
+  const daysChecked = useEffect(() => {
+    console.log(progressData, "on useeffect");
+    progressData.map((progressData) => {
+      if (progressData.status === "checked") {
+        console.log(daysChecked);
+      }
+    });
+  }, []);
 
   return (
     <Card>
