@@ -11,6 +11,7 @@ const Habits = (props: any) => {
       {props.habits.map((habit: any) => (
         <HabitItem
           title={habit.name.charAt(0).toUpperCase() + habit.name.slice(1)}
+          key={habit.name}
         />
       ))}
     </div>
