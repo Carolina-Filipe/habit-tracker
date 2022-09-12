@@ -17,14 +17,16 @@ const HabitItem = (props: any) => {
     });
   };
 
-  const daysChecked = useEffect(() => {
+  useEffect(() => {
     console.log(progressData, "on useeffect");
-    progressData.map((progressData) => {
+    let count: number = 0;
+    progressData.forEach((progressData) => {
       if (progressData.status === "checked") {
-        console.log(daysChecked);
+        count = count + 1;
       }
     });
-  }, []);
+    console.log(count);
+  }, [progressData]);
 
   return (
     <Card>
