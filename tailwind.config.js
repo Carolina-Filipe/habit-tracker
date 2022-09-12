@@ -11,6 +11,13 @@ module.exports = {
       lg: "976px",
       xl: "1440px",
     },
+    colors: {
+      brown: "#32342A",
+      green: "#CBDF90",
+      "light-green": "#DBEFBC",
+      "light-blue": "#CFEBDF",
+      blue: "#9BC4CB",
+    },
     extend: {},
   },
   plugins: [require("tw-elements/dist/plugin")],

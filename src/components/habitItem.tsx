@@ -3,7 +3,10 @@ const HabitItem = (props: any) => {
   return (
     <Card>
       <h2 className="text-base font-semibold">{props.title}</h2>
-      <div> Habit checkbox</div>
+      <label>
+        Today
+        <input type="checkbox"></input>
+      </label>
     </Card>
   );
 };

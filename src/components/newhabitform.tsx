@@ -34,7 +34,7 @@ const NewHabitForm = (props: any) => {
     <div className="w-full flex  justify-center">
       {!isEditing && (
         <button
-          className="inline-block px-6 pt-2.5 pb-2 bg-orange-600 text-white font-medium text-xs leading-normal uppercase rounded shadow-md hover:bg-orange-700 hover:shadow-lg focus:bg-orange-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out flex align-center"
+          className="inline-block px-6 pt-2.5 pb-2 bg-green text-white font-medium text-xs leading-normal uppercase rounded shadow-md hover:bg-green hover:shadow-lg focus:bg-green focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out flex align-center"
           onClick={startEditingHandler}
         >
           <div> icon</div>

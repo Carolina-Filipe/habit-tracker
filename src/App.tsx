@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="flex flex-col w-full justify-center items-center p-8 gap-8">
-      <h1 className="text-3xl font-bold underline">Habit Tracker</h1>
+      <h1>Your Habits</h1>
       <div className="w-3/4">
         <NewHabitForm className="gap-8" onAddHabit={addHabitsHandler} />
       </div>
