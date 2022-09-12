@@ -18,6 +18,7 @@ module.exports = {
       light_blue: "#CFEBDF",
       blue: "#9BC4CB",
     },
+
     extend: {},
   },
   plugins: [require("tw-elements/dist/plugin")],
