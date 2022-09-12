@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import Footer from "./components/footer";
 import Habits from "./components/habits";
 import NewHabitForm from "./components/newhabitform";
 import { Habit } from "./types/habit";
@@ -20,9 +21,9 @@ function App() {
         <NewHabitForm className="gap-8" onAddHabit={addHabitsHandler} />
       </div>
       <div className="w-3/4">
-        List of habits
         <Habits habits={habits} />
       </div>
+      <Footer />
     </div>
   );
 }
