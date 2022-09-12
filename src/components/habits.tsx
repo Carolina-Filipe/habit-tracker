@@ -9,7 +9,9 @@ const Habits = (props: any) => {
   return (
     <div className="flex flex-col gap-8">
       {props.habits.map((habit: any) => (
-        <HabitItem title={habit.name} />
+        <HabitItem
+          title={habit.name.charAt(0).toUpperCase() + habit.name.slice(1)}
+        />
       ))}
     </div>
   );
