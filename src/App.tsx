@@ -8,7 +8,7 @@ import { Habit } from "./types/habit";
 function App() {
   const [habits, setHabits] = useState<Habit[]>([]);
   const addHabitsHandler = (habit: Habit) => {
-    console.log(habit);
+    // console.log(habit);
     setHabits((prevHabits) => {
       return [habit, ...prevHabits];
     });

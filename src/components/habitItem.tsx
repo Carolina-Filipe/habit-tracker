@@ -18,14 +18,16 @@ const HabitItem = (props: any) => {
   };
 
   useEffect(() => {
-    console.log(progressData, "on useeffect");
+    // console.log(progressData, "on useeffect");
     let count: number = 0;
+    let goal: number = 365;
     progressData.forEach((progressData) => {
       if (progressData.status === "checked") {
         count = count + 1;
       }
     });
-    console.log(count);
+    const achievedPercentage = Math.round((count / goal) * 100);
+    // console.log("number achieve" + count, achievedPercentage + "%");
   }, [progressData]);
 
   return (

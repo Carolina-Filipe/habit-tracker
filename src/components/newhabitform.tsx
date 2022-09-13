@@ -13,7 +13,7 @@ const NewHabitForm = (props: any) => {
   //todo: give this the correct type
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    console.log("submit", habitName);
+    // console.log("submit", habitName);
     const habitData: Habit = { name: habitName };
     props.onAddHabit(habitData);
     setisEditing(false);
