@@ -11,14 +11,13 @@ const HabitItem = (props: any) => {
       date: new Date(),
       status: "checked",
     };
-    // console.log(newProgressData);
+    console.log(newProgressData);
     setProgressData((prevProgressData) => {
       return [newProgressData, ...prevProgressData];
     });
   };
 
   useEffect(() => {
-    // console.log(progressData, "on useeffect");
     let count: number = 0;
     let goal: number = 365;
     progressData.forEach((progressData) => {

@@ -18,6 +18,7 @@ const NewHabitForm = (props: any) => {
     props.onAddHabit(habitData);
     setisEditing(false);
     setHabitName("");
+    // console.log(habitData);
   };
 
   const startEditingHandler = () => {
