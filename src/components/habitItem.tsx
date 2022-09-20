@@ -1,4 +1,3 @@
-import { count } from "console";
 import { useEffect, useState } from "react";
 import { Progress } from "../types/progress";
 import Card from "../UI/card";
@@ -40,6 +39,7 @@ const HabitItem = (props: any) => {
           onClick={checkHandler}
         ></input>
       </label>
+      <button onClick={props.onDelete}>Delete</button>
     </Card>
   );
 };
