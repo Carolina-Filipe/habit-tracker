@@ -6,7 +6,7 @@ const Card = (props: any) => {
   const progressWidth = "400px";
 
   return (
-    <div className="flex inline-flex w-full bg-paper flex-col rounded-2xl -z-20">
+    <div className="flex inline-flex w-full bg-paper flex-col rounded-2xl">
       <div
         className="rounded-2xl p-4 h-full -z-10"
         style={{ background: "red", width: progressWidth }}
