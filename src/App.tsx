@@ -11,22 +11,17 @@ function App() {
 
   useEffect(() => {
     const storedHabits = JSON.parse(localStorage.getItem("Habits") || "[]");
-    console.log(storedHabits);
 
     setHabits(storedHabits);
   }, []);
 
   useEffect(() => {
-    console.log(habits);
-
     if (habits) {
       localStorage.setItem("Habits", JSON.stringify(habits));
     }
   }, [habits]);
 
   const addHabitsHandler = (habit: Habit) => {
-    console.log("add", habit);
-
     setHabits((prevHabits) => {
       return [habit, ...(prevHabits ?? [])];
     });

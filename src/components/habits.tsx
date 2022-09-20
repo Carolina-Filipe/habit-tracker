@@ -6,12 +6,13 @@ const Habits = (props: any) => {
     return <h2>Found no results.</h2>;
   }
   // console.log(props.habits, "habits file");
+
   return (
     <div className="flex flex-col gap-8">
-      {props.habits?.map((habit: any) => (
+      {props.habits?.map((habit: any, index: number) => (
         <HabitItem
+          key={index}
           title={habit.name.charAt(0).toUpperCase() + habit.name.slice(1)}
-          key={habit.index}
         />
       ))}
     </div>
