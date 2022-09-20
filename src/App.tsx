@@ -6,7 +6,7 @@ import NewHabitForm from "./components/newhabitform";
 import { Habit } from "./types/habit";
 
 function App() {
-  // try to load the array from localstorage if not there then empty array under useState
+  //gets new habits and adds them to arry before sending to localStorage
   const [habits, setHabits] = useState<Habit[]>();
 
   useEffect(() => {
