@@ -6,7 +6,7 @@ import NewHabitForm from "./components/newhabitform";
 import { Habit } from "./types/habit";
 
 function App() {
-  //gets new habits and adds them to arry before sending to localStorage
+  //gets new habits and adds them to array before sending to localStorage
   const [habits, setHabits] = useState<Habit[]>();
 
   useEffect(() => {
