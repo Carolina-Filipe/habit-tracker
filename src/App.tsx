@@ -36,7 +36,7 @@ function App() {
     }
   };
 
-  const addProgressHandler = (progressData: Progress) => {
+  const addProgressHandler = (progressData: Progress, habitName: String) => {
     setProgressData((prevProgressData) => {
       return [progressData, ...(prevProgressData ?? [])];
     });
@@ -52,6 +52,7 @@ function App() {
       <div className="w-3/4">
         <Habits
           habits={habits}
+          progress={progressData}
           onDeleteHabit={deleteHabitHandler}
           onAddProgress={addProgressHandler}
         />

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Habit } from "../types/habit";
-import { Progress } from "../types/progress";
+import { Progress, ProgressData } from "../types/progress";
 
 const NewHabitForm = (props: any) => {
   const [habitName, setHabitName] = useState("");
@@ -24,7 +24,8 @@ const NewHabitForm = (props: any) => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    const habitData: Habit = { name: habitName };
+    const progressData: Progress = [{ date: new Date(), status: "" }];
+    const habitData: Habit = { name: habitName, habit_progress: progressData };
     props.onAddHabit(habitData);
     setisEditing(false);
     setHabitName("");
