@@ -11,12 +11,23 @@ function App() {
   const [habits, setHabits] = useState<Habit[]>();
   const [progressData, setProgressData] = useState<Progress[]>();
 
+  //loads existing habits on start
+  const storedHabits = JSON.parse(localStorage.getItem("Habits") || "[]");
   useEffect(() => {
-    const storedHabits = JSON.parse(localStorage.getItem("Habits") || "[]");
-
     setHabits(storedHabits);
   }, []);
 
+  //pushes progress data to the local storage habits array
+  // useEffect(() => {
+  //   if (progressData) {
+  //     storedHabits.push(progressData);
+  //     localStorage.setItem("Habits", JSON.stringify(habits));
+  //   }
+  // }, [progressData]);
+
+  console.log("stored habits + name");
+
+  //sets changes to existing habits array
   useEffect(() => {
     if (habits) {
       localStorage.setItem("Habits", JSON.stringify(habits));
