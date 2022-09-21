@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Habit } from "../types/habit";
+import { Progress, ProgressData } from "../types/progress";
 import HabitItem from "./habitItem";
 
 const Habits = (props: any) => {
@@ -15,6 +16,15 @@ const Habits = (props: any) => {
     props.onDeleteHabit(newHabits);
   };
 
+  const handleProgress = (event: any) => {
+    const newProgressData: ProgressData = {
+      date: new Date(),
+      status: "checked",
+    };
+    props.onAddProgress(newProgressData);
+    console.log(newProgressData, "habits file");
+  };
+
   return (
     <div className="flex flex-col gap-8">
       {props.habits?.map((habit: any, index: number) => (
@@ -22,6 +32,7 @@ const Habits = (props: any) => {
           key={index}
           title={habit.name.charAt(0).toUpperCase() + habit.name.slice(1)}
           onDelete={handleDelete}
+          onAddProgress={handleProgress}
         />
       ))}
     </div>

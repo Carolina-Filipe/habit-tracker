@@ -1,4 +1,8 @@
-export interface Progress {
+export interface ProgressData {
+    
     date: Date,
-    status: string, 
-}
+    status: string, }
+
+export type Progress = ProgressData [];
+
+

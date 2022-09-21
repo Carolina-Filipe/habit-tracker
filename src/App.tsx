@@ -4,10 +4,12 @@ import Footer from "./components/footer";
 import Habits from "./components/habits";
 import NewHabitForm from "./components/newhabitform";
 import { Habit } from "./types/habit";
+import { Progress, ProgressData } from "./types/progress";
 
 function App() {
   //gets new habits and adds them to array before sending to localStorage
   const [habits, setHabits] = useState<Habit[]>();
+  const [progressData, setProgressData] = useState<Progress[]>();
 
   useEffect(() => {
     const storedHabits = JSON.parse(localStorage.getItem("Habits") || "[]");
@@ -19,7 +21,6 @@ function App() {
     if (habits) {
       localStorage.setItem("Habits", JSON.stringify(habits));
     }
-    console.log(habits, "useeffect");
   }, [habits]);
 
   const addHabitsHandler = (habit: Habit) => {
@@ -30,11 +31,16 @@ function App() {
 
   const deleteHabitHandler = (index: number, props: any) => {
     const deletedHabits = habits?.splice(index, 1);
-    console.log("deleted habits", deletedHabits, "habits", habits);
-    //value types and reference types
     if (habits) {
       setHabits([...habits]);
     }
+  };
+
+  const addProgressHandler = (progressData: Progress) => {
+    setProgressData((prevProgressData) => {
+      return [progressData, ...(prevProgressData ?? [])];
+    });
+    console.log(progressData, "app");
   };
 
   return (
@@ -44,7 +50,11 @@ function App() {
         <NewHabitForm className="gap-8" onAddHabit={addHabitsHandler} />
       </div>
       <div className="w-3/4">
-        <Habits habits={habits} onDeleteHabit={deleteHabitHandler} />
+        <Habits
+          habits={habits}
+          onDeleteHabit={deleteHabitHandler}
+          onAddProgress={addProgressHandler}
+        />
       </div>
       <Footer />
     </div>

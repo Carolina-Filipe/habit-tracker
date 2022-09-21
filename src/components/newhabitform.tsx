@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Habit } from "../types/habit";
+import { Progress } from "../types/progress";
 
 const NewHabitForm = (props: any) => {
   const [habitName, setHabitName] = useState("");
   const [isEditing, setisEditing] = useState(false);
+  // const [habitProgress, setHabitProgress] = useState<Progress[]>([]);
 
   //todo: give this the correct type
   const handleHabitNameChange = (event: any) => {
@@ -11,15 +13,6 @@ const NewHabitForm = (props: any) => {
   };
 
   //todo: give this the correct type
-  const handleSubmit = (event: any) => {
-    event.preventDefault();
-    // console.log("submit", habitName);
-    const habitData: Habit = { name: habitName };
-    props.onAddHabit(habitData);
-    setisEditing(false);
-    setHabitName("");
-    // console.log(habitData);
-  };
 
   const startEditingHandler = () => {
     setisEditing(true);
@@ -28,7 +21,15 @@ const NewHabitForm = (props: any) => {
   const stopEditingHandler = () => {
     setisEditing(false);
   };
-  // newhabitsavehandler that takes newhabitdata and feeds it to app tsx
+
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+    const habitData: Habit = { name: habitName };
+    props.onAddHabit(habitData);
+    setisEditing(false);
+    setHabitName("");
+  };
+
   return (
     <div className="w-full flex  justify-center">
       {!isEditing && (
