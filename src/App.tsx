@@ -19,12 +19,22 @@ function App() {
     if (habits) {
       localStorage.setItem("Habits", JSON.stringify(habits));
     }
+    console.log(habits, "useeffect");
   }, [habits]);
 
   const addHabitsHandler = (habit: Habit) => {
     setHabits((prevHabits) => {
       return [habit, ...(prevHabits ?? [])];
     });
+  };
+
+  const deleteHabitHandler = (index: number, props: any) => {
+    const deletedHabits = habits?.splice(index, 1);
+    console.log("deleted habits", deletedHabits, "habits", habits);
+    //value types and reference types
+    if (habits) {
+      setHabits([...habits]);
+    }
   };
 
   return (
@@ -34,7 +44,7 @@ function App() {
         <NewHabitForm className="gap-8" onAddHabit={addHabitsHandler} />
       </div>
       <div className="w-3/4">
-        <Habits habits={habits} />
+        <Habits habits={habits} onDeleteHabit={deleteHabitHandler} />
       </div>
       <Footer />
     </div>
