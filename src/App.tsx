@@ -17,17 +17,6 @@ function App() {
     setHabits(storedHabits);
   }, []);
 
-  //pushes progress data to the local storage habits array
-  // useEffect(() => {
-  //   if (progressData) {
-  //     storedHabits.push(progressData);
-  //     localStorage.setItem("Habits", JSON.stringify(habits));
-  //   }
-  // }, [progressData]);
-
-  //console.log("stored habits + name");
-
-  //sets changes to existing habits array
   useEffect(() => {
     if (habits) {
       localStorage.setItem("Habits", JSON.stringify(habits));
@@ -46,11 +35,11 @@ function App() {
     }
   };
 
-  const addProgressHandler = (progressData: Progress, habitName: String) => {
-    setProgressData((prevProgressData) => {
-      return [progressData, ...(prevProgressData ?? [])];
-    });
-    //console.log(progressData, "app");
+  const addProgressHandler = (progressData: ProgressData, habit: Habit) => {
+    habit.habit_progress?.push(progressData);
+    if (habits) {
+      setHabits([...habits]);
+    }
   };
 
   return (

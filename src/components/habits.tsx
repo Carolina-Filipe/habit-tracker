@@ -16,13 +16,12 @@ const Habits = (props: any) => {
     console.log("this is the deleted habit ", deletedHabit);
   };
 
-  const handleProgress = (event: any) => {
+  const handleProgress = (habit: Habit) => {
     const newProgressData: ProgressData = {
       date: new Date(),
       status: "checked",
     };
-    props.onAddProgress(newProgressData);
-    console.log(newProgressData, "habits file");
+    props.onAddProgress(newProgressData, habit);
   };
 
   return (
@@ -32,7 +31,7 @@ const Habits = (props: any) => {
           key={index}
           title={habit.name.charAt(0).toUpperCase() + habit.name.slice(1)}
           onDelete={() => handleDelete(index)}
-          onAddProgress={handleProgress}
+          onAddProgress={() => handleProgress(habit)}
         />
       ))}
     </div>

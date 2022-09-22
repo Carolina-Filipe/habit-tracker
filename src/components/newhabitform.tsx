@@ -24,8 +24,9 @@ const NewHabitForm = (props: any) => {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    const progressData: Progress = [{ date: new Date(), status: "" }];
-    const habitData: Habit = { name: habitName, habit_progress: progressData };
+    const progressData: ProgressData = { date: new Date(), status: "" };
+    const progress: Progress = [progressData];
+    const habitData: Habit = { name: habitName, habit_progress: progress };
     props.onAddHabit(habitData);
     setisEditing(false);
     setHabitName("");
