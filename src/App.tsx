@@ -25,7 +25,7 @@ function App() {
   //   }
   // }, [progressData]);
 
-  console.log("stored habits + name");
+  //console.log("stored habits + name");
 
   //sets changes to existing habits array
   useEffect(() => {
@@ -40,8 +40,7 @@ function App() {
     });
   };
 
-  const deleteHabitHandler = (index: number, props: any) => {
-    const deletedHabits = habits?.splice(index, 1);
+  const deleteHabitHandler = (habit: Habit) => {
     if (habits) {
       setHabits([...habits]);
     }
@@ -51,7 +50,7 @@ function App() {
     setProgressData((prevProgressData) => {
       return [progressData, ...(prevProgressData ?? [])];
     });
-    console.log(progressData, "app");
+    //console.log(progressData, "app");
   };
 
   return (
