@@ -26,6 +26,8 @@ const Habits = (props: any) => {
     setProgressData(newProgressData);
   };
 
+  console.log(props.progressPercentage);
+
   return (
     <div className="flex flex-col gap-8">
       {props.habits?.map((habit: Habit, index: number) => (
@@ -34,6 +36,7 @@ const Habits = (props: any) => {
           title={habit.name.charAt(0).toUpperCase() + habit.name.slice(1)}
           onDelete={() => handleDelete(index)}
           onAddProgress={() => handleProgress(habit)}
+          progressPercentage={props.progressPercentage}
         />
       ))}
     </div>

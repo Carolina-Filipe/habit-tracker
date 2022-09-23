@@ -45,7 +45,10 @@ function App() {
     const progressPercentageCalculator: number = Math.round(
       (habit.habit_progress?.length / goal) * 100
     );
+    console.log(progressPercentageCalculator);
+
     setProgressPercentage(progressPercentageCalculator);
+    console.log(progressPercentage);
   };
 
   return (
@@ -59,6 +62,7 @@ function App() {
           habits={habits}
           onDeleteHabit={deleteHabitHandler}
           onAddProgress={addProgressHandler}
+          progressPercentage={progressPercentage}
         />
       </div>
       <Footer />

@@ -15,7 +15,7 @@ const HabitItem = (props: any) => {
           onClick={props.onAddProgress}
         ></input>
       </label>
-      <div>percentage</div>
+      <div className="text-base font-semibold">{props.progressPercentage}</div>
       <button onClick={props.onDelete}>Delete</button>
     </Card>
   );
