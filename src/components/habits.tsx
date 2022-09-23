@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Habit } from "../types/habit";
 import { Progress, ProgressData } from "../types/progress";
 import HabitItem from "./habitItem";
 
 const Habits = (props: any) => {
+  const [progressData, setProgressData] = useState<ProgressData>();
   //to-do: figure out props type
 
   if (props.habits?.length === 0) {
@@ -22,6 +23,7 @@ const Habits = (props: any) => {
       status: "checked",
     };
     props.onAddProgress(newProgressData, habit);
+    setProgressData(newProgressData);
   };
 
   return (
