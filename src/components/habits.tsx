@@ -36,7 +36,7 @@ const Habits = (props: any) => {
           title={habit.name.charAt(0).toUpperCase() + habit.name.slice(1)}
           onDelete={() => handleDelete(index)}
           onAddProgress={() => handleProgress(habit)}
-          progressPercentage={props.progressPercentage}
+          progress={props.progress}
         />
       ))}
     </div>

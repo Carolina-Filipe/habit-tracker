@@ -3,8 +3,20 @@ import { Progress } from "../types/progress";
 import Card from "../UI/card";
 
 const HabitItem = (props: any) => {
+  const [progressPercentage, setProgressPercentage] = useState<number>();
+
+  let goal: number = 365;
+
+  console.log(props.progress, "progress props");
+  const progressPercentageCalculator: number = Math.round(
+    (props.progress / goal) * 100
+  );
+
+  // setProgressPercentage(progressPercentageCalculator);
+  console.log(progressPercentageCalculator, "habit item");
+
   return (
-    <Card>
+    <Card progress={props.progress}>
       <h2 className="text-base font-semibold">{props.title}</h2>
       <label>
         Today
@@ -15,7 +27,7 @@ const HabitItem = (props: any) => {
           onClick={props.onAddProgress}
         ></input>
       </label>
-      <div className="text-base font-semibold">{props.progressPercentage}</div>
+      <div className="text-base font-semibold">{`${progressPercentageCalculator}%`}</div>
       <button onClick={props.onDelete}>Delete</button>
     </Card>
   );
