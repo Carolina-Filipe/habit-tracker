@@ -9,7 +9,6 @@ import { Progress, ProgressData } from "./types/progress";
 function App() {
   //gets new habits and adds them to array before sending to localStorage
   const [habits, setHabits] = useState<Habit[]>();
-  const [progress, setProgress] = useState<number>();
 
   //loads existing habits on start
   const storedHabits = JSON.parse(localStorage.getItem("Habits") || "[]");
@@ -41,7 +40,6 @@ function App() {
     if (habits) {
       setHabits([...habits]);
     }
-    setProgress(habit.habit_progress?.length);
   };
 
   return (
@@ -55,7 +53,6 @@ function App() {
           habits={habits}
           onDeleteHabit={deleteHabitHandler}
           onAddProgress={addProgressHandler}
-          progress={progress}
         />
       </div>
       <Footer />

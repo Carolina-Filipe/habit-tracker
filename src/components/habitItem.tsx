@@ -11,6 +11,7 @@ const HabitItem = (props: any) => {
   const progressPercentageCalculator: number = Math.round(
     (props.progress / goal) * 100
   );
+  console.log(props.progress);
 
   // setProgressPercentage(progressPercentageCalculator);
   console.log(progressPercentageCalculator, "habit item");

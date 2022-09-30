@@ -33,10 +33,11 @@ const Habits = (props: any) => {
       {props.habits?.map((habit: Habit, index: number) => (
         <HabitItem
           key={index}
+          habit={habit}
           title={habit.name.charAt(0).toUpperCase() + habit.name.slice(1)}
           onDelete={() => handleDelete(index)}
           onAddProgress={() => handleProgress(habit)}
-          progress={props.progress}
+          progress={habit.habit_progress?.length} //passing the same value to every component
         />
       ))}
     </div>
