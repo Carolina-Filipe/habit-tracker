@@ -10,9 +10,17 @@ function App() {
   //gets new habits and adds them to array before sending to localStorage
   const [habits, setHabits] = useState<Habit[]>();
 
-  //loads existing habits on start
-  const storedHabits = JSON.parse(localStorage.getItem("Habits") || "[]");
   useEffect(() => {
+    //loads existing habits on start
+    const storedHabits: Habit[] = JSON.parse(
+      localStorage.getItem("Habits") || "[]"
+    ).map((habit: any) => ({
+      name: habit.name,
+      habit_progress: habit.habit_progress?.map((progress: any) => ({
+        date: progress.date ? new Date(progress.date) : null,
+        status: progress.status,
+      })),
+    }));
     setHabits(storedHabits);
   }, []);
 
@@ -42,6 +50,12 @@ function App() {
     }
   };
 
+  const removeProgressHandler = (progressData: ProgressData, habit: Habit) => {
+    if (habits) {
+      setHabits([...habits]);
+    }
+  };
+
   return (
     <div className="flex flex-col w-full justify-center items-center p-8 gap-8">
       <h1>Your Habits</h1>
@@ -53,6 +67,7 @@ function App() {
           habits={habits}
           onDeleteHabit={deleteHabitHandler}
           onAddProgress={addProgressHandler}
+          onRemoveProgress={removeProgressHandler}
         />
       </div>
       <Footer />
