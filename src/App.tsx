@@ -44,13 +44,6 @@ function App() {
 
   const addProgressHandler = (progressData: ProgressData, habit: Habit) => {
     let goal: number = 365;
-    habit.habit_progress?.push(progressData);
-    if (habits) {
-      setHabits([...habits]);
-    }
-  };
-
-  const removeProgressHandler = (progressData: ProgressData, habit: Habit) => {
     if (habits) {
       setHabits([...habits]);
     }
@@ -67,7 +60,6 @@ function App() {
           habits={habits}
           onDeleteHabit={deleteHabitHandler}
           onAddProgress={addProgressHandler}
-          onRemoveProgress={removeProgressHandler}
         />
       </div>
       <Footer />
