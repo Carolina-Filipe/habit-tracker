@@ -59,7 +59,7 @@ function App() {
         <Habits
           habits={habits}
           onDeleteHabit={deleteHabitHandler}
-          onAddProgress={addProgressHandler}
+          onUpdateProgress={addProgressHandler}
         />
       </div>
       <Footer />

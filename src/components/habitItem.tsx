@@ -5,14 +5,9 @@ import Card from "../UI/card";
 const HabitItem = (props: any) => {
   let goal: number = 365;
 
-  // console.log(props.progress, "progress props");
   const progressPercentageCalculator: number = Math.round(
     (props.progress / goal) * 100
   );
-  // console.log(props.progress);
-
-  // // setProgressPercentage(progressPercentageCalculator);
-  // console.log(progressPercentageCalculator, "habit item");
 
   console.log(props.onUncheck);
 
@@ -23,11 +18,9 @@ const HabitItem = (props: any) => {
         Today
         <input
           type="checkbox"
-          value={props.onAddProgress.toString()}
+          value={props.onUpdateProgress.toString()}
           className="w-6 h-6 rounded-full checked:bg-slate-900"
-          //todo: rename this
-          onClick={props.onAddProgress}
-          // onUncheck={props.onUncheck}
+          onClick={props.onUpdateProgress}
         ></input>
       </label>
       <div className="text-base font-semibold">{`${progressPercentageCalculator}%`}</div>

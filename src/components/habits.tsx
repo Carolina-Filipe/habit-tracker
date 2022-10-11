@@ -16,39 +16,25 @@ const Habits = (props: any) => {
     console.log("this is the deleted habit ", deletedHabit);
   };
 
+  //handles check and uncheck progress data
   const handleProgress = (habit: Habit) => {
     let todaysDate = new Date().toISOString().split("T")[0];
 
     const lastProgress = habit.habit_progress[habit.habit_progress?.length - 1];
     const checkedDate = lastProgress?.date.toISOString().split("T")[0];
 
-    console.log(habit.habit_progress);
-
-    // if (habit.habit_progress?.length === 0 || lastProgress === undefined) {
-    //   const newProgressData: ProgressData = {
-    //     date: new Date(),
-    //     status: "checked",
-    //   };
-    //   const updatedProgress = habit.habit_progress?.push(newProgressData);
-    //   props.onAddProgress(updatedProgress, habit);
-    // } else
-
     if (checkedDate === todaysDate) {
       const removeCheck = habit.habit_progress?.pop();
-      props.onAddProgress(removeCheck, habit);
-      // setProgressData(removeProgressData);
+      props.onUpdateProgress(removeCheck, habit);
     } else {
       const newProgressData: ProgressData = {
         date: new Date(),
         status: "checked",
       };
       const updatedProgress = habit.habit_progress?.push(newProgressData);
-      props.onAddProgress(updatedProgress, habit);
+      props.onUpdateProgress(updatedProgress, habit);
     }
     console.log(habit.habit_progress, "2");
-    //if progress array has todays date
-    // remove the item from the array
-    //else add the progress to the array
   };
 
   console.log(props.progressPercentage);
@@ -61,7 +47,7 @@ const Habits = (props: any) => {
           habit={habit}
           title={habit.name.charAt(0).toUpperCase() + habit.name.slice(1)}
           onDelete={() => handleDelete(index)}
-          onAddProgress={() => handleProgress(habit)}
+          onUpdateProgress={() => handleProgress(habit)}
           progress={habit.habit_progress?.length}
         />
       ))}
