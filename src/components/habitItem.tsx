@@ -3,13 +3,24 @@ import { Progress } from "../types/progress";
 import Card from "../UI/card";
 
 const HabitItem = (props: any) => {
+  const [isChecked, setIsChecked] = useState(false);
   let goal: number = 365;
 
   const progressPercentageCalculator: number = Math.round(
     (props.progress / goal) * 100
   );
 
-  console.log(props.onUncheck);
+  const checkboxHandler = () => {
+    let todaysDate = new Date().toISOString().split("T")[0];
+    const lastProgress =
+      props.habit.habit_progress[props.habit.habit_progress?.length - 1];
+    const checkedDate = lastProgress?.date.toISOString().split("T")[0];
+    if (todaysDate === checkedDate) {
+      setIsChecked(true);
+    } else {
+      setIsChecked(false);
+    }
+  };
 
   return (
     <Card progress={props.progress}>
@@ -18,7 +29,8 @@ const HabitItem = (props: any) => {
         Today
         <input
           type="checkbox"
-          value={props.onUpdateProgress.toString()}
+          checked={isChecked}
+          onLoad={checkboxHandler}
           className="w-6 h-6 rounded-full checked:bg-slate-900"
           onClick={props.onUpdateProgress}
         ></input>
